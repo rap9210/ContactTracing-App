@@ -2,7 +2,24 @@ import java.util.ArrayList;
 
 public class Symptom {
 
+    private String name;
+    private String days;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDays() {
+        return days;
+    }
+
+    public void setDays(String days) {
+        this.days = days;
+    }
 
     public ArrayList<String> SymptomList() {
 
@@ -23,15 +40,5 @@ public class Symptom {
         symptomList.add("Sever Vomiting");
 
         return symptomList;}
-
-//        public String printSymptomList (){
-//
-//        String tempString = "";
-//        for(String i: SymptomList()){
-//            tempString += i+"\n";
-//        }
-//
-//        return tempString;}
-
 
 }

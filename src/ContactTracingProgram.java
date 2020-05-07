@@ -6,8 +6,6 @@ public class ContactTracingProgram {
         Scanner scn = new Scanner(System.in);
         String userInput;
         Person person1 = new Person();
-        ArrayList<Contact> contactList = new ArrayList<>();
-        ArrayList<String> symptomList = new ArrayList<>();
 
 
 
@@ -36,13 +34,29 @@ public class ContactTracingProgram {
 
         //Go through list of symptoms in Symptom class. If they have it, ask how many
         //days and add that info to another list
-        for(String element: person1.getSymptom().SymptomList()){
+        for(String element: person1.getSymptom()){
             System.out.println("Have you experienced "+element+"? y/n");
             userInput = scn.nextLine();
+            while((!userInput.equalsIgnoreCase("y")&&(!userInput.equalsIgnoreCase("n")))){
+                System.out.println("Please enter 'y' for yes, or 'n' for no");
+                userInput = scn.nextLine();
+            }
             if(userInput.equalsIgnoreCase("y")){
+
+                //create new Symptom
+                Symptom symptom1 = new Symptom();
+
+                //set symptom name to corresponding symptom from list that had a 'y' response
+                symptom1.setName(element);
+
                 System.out.println("How many days did you experience it?");
                 userInput = scn.nextLine();
-                symptomList.add(element+" for "+userInput+" days");
+
+                //set symptom days of having it
+                symptom1.setDays(userInput);
+
+                //add symptom to patient's symptom list
+                person1.patientSymptoms().add(symptom1);
             }
         }
         System.out.println("____________________________________________________________");
@@ -50,9 +64,12 @@ public class ContactTracingProgram {
         System.out.println("\n\t\t\t\t\tRECENT ENCOUNTERS INFO");
         System.out.println("Have you met or run into anybody from 2 weeks \nprior to the first symptom up until today? y/n");
         userInput = scn.nextLine();
+
         while(userInput.equalsIgnoreCase("y")){
+
+            //Create new contact
             Contact contact1 = new Contact();
-            contactList.add(contact1);
+
             System.out.println("Their NAME:");
             userInput = scn.nextLine();
             contact1.setName(userInput);
@@ -77,6 +94,8 @@ public class ContactTracingProgram {
             userInput = scn.nextLine();
             contact1.setAddress(userInput);
 
+            //Add contact to patient's Contact list
+            person1.personContacts().add(contact1);
 
             System.out.println("Have you met or run into anybody else from 2 weeks \nprior to the first symptom up until today? y/n");
             userInput = scn.nextLine();
@@ -88,14 +107,15 @@ public class ContactTracingProgram {
 
         System.out.println("\nPatient Name: "+person1.getName()+"\nPatient Email: "+person1.getEmail()+"\nPatient Address: "+person1.getAddress()+"\nPatient Phone: "+person1.getPhone());
         System.out.println("\nList of symptoms: ");
-        for (String i: symptomList){
-            System.out.println(i);
+        for (Symptom i: person1.patientSymptoms()){
+            System.out.println(i.getName()+" for "+i.getDays()+" days");
         }
+
 
         System.out.println("\n***                                                    ***");
 
         System.out.println("\n\t\t\t\t\tCONTACTS LIST");
-        for (Contact i: contactList){
+        for (Contact i: person1.personContacts()){
             System.out.println("\nContact Name: "+ i.getName()+"\nContact Email: "+i.getEmail()+"\nContact Phone: "+i.getPhone()+
                     "\nMeeting Location: "+i.getContactLocation()+" on "+i.getContactDate()+"\nCity and State: "+i.getAddress());
         }

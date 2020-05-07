@@ -1,12 +1,14 @@
 import java.util.ArrayList;
-import java.util.Date;
+
 
 public class Contact extends Person {
-    private ArrayList<Contact> contactList = new ArrayList<>();
+
     private String contactLocation;
     private String contactDate;
 
-    public Contact(){}
+    public Contact(){
+
+    }
 
     public String getContactDate() {
         return contactDate;
@@ -20,11 +22,8 @@ public class Contact extends Person {
         this.contactLocation = contactLocation;
     }
 
-    public ArrayList<Contact> getContactList() {
-        return contactList;
-    }
 
-    public Contact(Symptom symptom, String name, String address, String email, String phone, String contactLocation) {
+    public Contact(ArrayList<Symptom> symptom, String name, String address, String email, String phone, String contactLocation) {
         super(symptom, name, address, email, phone);
         this.contactLocation = contactLocation;
     }
