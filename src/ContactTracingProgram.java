@@ -56,18 +56,27 @@ public class ContactTracingProgram {
             System.out.println("Their NAME:");
             userInput = scn.nextLine();
             contact1.setName(userInput);
+
             System.out.println("Their EMAIL: ");
             userInput = scn.nextLine();
             contact1.setEmail(userInput);
+
             System.out.println("Their PHONE NUMBER");
             userInput = scn.nextLine();
             contact1.setPhone(userInput);
+
+            System.out.println("The DATE of the Encounter: mm/dd/yy");
+            userInput = scn.nextLine();
+            contact1.setContactDate(userInput);
+
             System.out.println("Where did you meet or run into this person? ");
             userInput = scn.nextLine();
             contact1.setContactLocation(userInput);
+
             System.out.println("In which city and state? ");
             userInput = scn.nextLine();
             contact1.setAddress(userInput);
+
 
             System.out.println("Have you met or run into anybody else from 2 weeks \nprior to the first symptom up until today? y/n");
             userInput = scn.nextLine();
@@ -88,9 +97,9 @@ public class ContactTracingProgram {
         System.out.println("\n\t\t\t\t\tCONTACTS LIST");
         for (Contact i: contactList){
             System.out.println("\nContact Name: "+ i.getName()+"\nContact Email: "+i.getEmail()+"\nContact Phone: "+i.getPhone()+
-                    "\nMeeting Location: "+i.getContactLocation()+"\nCity and State: "+i.getAddress());
+                    "\nMeeting Location: "+i.getContactLocation()+" on "+i.getContactDate()+"\nCity and State: "+i.getAddress());
         }
 
-        System.out.println("____________________________________________________________");
+        System.out.println("\n____________________________________________________________");
     }
 }

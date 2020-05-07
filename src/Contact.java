@@ -1,10 +1,21 @@
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Contact extends Person {
     private ArrayList<Contact> contactList = new ArrayList<>();
     private String contactLocation;
+    private String contactDate;
 
     public Contact(){}
+
+    public String getContactDate() {
+        return contactDate;
+    }
+
+    public void setContactDate(String contactDate) {
+        this.contactDate = contactDate;
+    }
+
     public Contact(String contactLocation) {
         this.contactLocation = contactLocation;
     }
