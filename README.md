@@ -1,4 +1,4 @@
-"# Week III Challenge: Contact Tracing" 
+# Week III Challenge: Contact Tracing 
 1. Create a Person class that will store all of the personal information.
 	a. Variables: Name, Email, Phone, Address and Symptoms.
 	b. Generate Getters and Setters
